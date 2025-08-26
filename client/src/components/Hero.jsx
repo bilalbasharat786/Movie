@@ -1,38 +1,43 @@
 import React, { useEffect, useState } from "react";
 import "./Hero.css";
 
-const slides = [
-  {
-    title: "Stranger Things",
-    desc: "Mystery, drama and adventure unfold in Hawkins.",
-    img: "https://image.tmdb.org/t/p/original/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg"
-  },
-  {
-    title: "Money Heist",
-    desc: "A criminal mastermind plans the biggest heist in history.",
-    img: "https://image.tmdb.org/t/p/original/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg"
-  },
-  {
-    title: "Wednesday",
-    desc: "A darkly funny coming-of-age story with a supernatural twist.",
-    img: "https://image.tmdb.org/t/p/original/9PFonBhy4cQy7Jz20NpMygczOkv.jpg"
-  }
-];
+
 
 function Hero() {
+  const [slides, setSlides] = useState([]);
   const [index, setIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
   useEffect(() => {
+    // TMDB trending data fetch
+    fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=944a4dcfa30d2998783dd7ba8ba5c664`)
+      .then((res) => res.json())
+      .then((data) => {
+        // top 5 trending shows/movies select
+        const items = data.results.slice(0, 5).map((item) => ({
+          title: item.title || item.name, // movies have title, TV shows have name
+          desc: item.overview,
+          img: `https://image.tmdb.org/t/p/original${item.backdrop_path}`
+        }));
+        setSlides(items);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  // slider interval
+  useEffect(() => {
+    if (slides.length === 0) return;
     const t = setInterval(() => {
       setAnimating(true);
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % slides.length);
         setAnimating(false);
-      }, 400); // match fade-out duration
+      }, 400);
     }, 5000);
     return () => clearInterval(t);
-  }, []);
+  }, [slides]);
+
+  if (slides.length === 0) return <p style={{textAlign:"center"}}>Loading...</p>;
 
   return (
     <section className="hero" id="hero">
