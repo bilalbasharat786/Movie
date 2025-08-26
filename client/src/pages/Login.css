@@ -1,0 +1,95 @@
+/* ====== Login Form Styling ====== */
+
+/* ====== Login & Signup Form Styling ====== */
+
+.form-card {
+  width: 350px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px 30px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form-card h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 22px;
+}
+
+/* Form rows */
+.form-row {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  transition: border 0.2s;
+}
+
+.input:focus {
+  border-color: #4caf50;
+}
+
+/* Buttons & Links */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:disabled {
+  background: #9ccc9c;
+  cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+  background: #43a047;
+}
+
+.link {
+  margin-left: 15px;
+  color: #4caf50;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Success message */
+.form-card p {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
+  color: #70f0a8;
+}

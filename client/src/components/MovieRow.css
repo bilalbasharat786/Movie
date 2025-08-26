@@ -1,0 +1,18 @@
+/* .row-section { margin: 18px 0 8px; }
+.row-title { margin: 10px 0 12px; padding-left: calc((100vw - min(1200px, 92vw)) / 2); }
+
+.row-scroller {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #2b2b3e transparent;
+  padding: 6px 0 18px;
+}
+
+.row-scroller::-webkit-scrollbar { height: 10px; }
+.row-scroller::-webkit-scrollbar-thumb { background: #2b2b3e; border-radius: 999px; }
+.row-scroller::-webkit-scrollbar-track { background: transparent; }
+
+.row-inner {
+  display: flex; gap: 14px;
+  padding: 0 calc((100vw - min(1200px, 92vw)) / 2);
+} */
